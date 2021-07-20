@@ -1,0 +1,78 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <center>
+      <table border="1">
+        <tr>
+          <td>Enter Name</td>
+          <td><input type="text" id="text" placeholder="Enter the Name"></td>
+        </tr>
+        <tr>
+          <td>text Size</td>
+          <td><input type="number" id="size" placeholder="Enter the font size"></td>
+        </tr>
+        <tr>
+          <td>Bg color</td>
+          <td><input type="color" id="bclr"></td>
+        </tr>
+        <tr>
+          <td>Text Color</td>
+          <td><input type="color" id="tclr"></td>
+        </tr>
+        <tr>
+          <td>Font Style</td>
+          <td>     
+            <select id="font">
+              <option>Latin</option>
+              <option>Algerian</option>
+              <option>Arial</option>
+              <option>Baskerville Old Face</option>
+              <option>Bauhaus 93</option>
+              <option>Bell MT</option>
+              <option>Bernard MT</option>
+              <option>Blackadder ITC</option>
+              <option>Bodoni MT Poster</option>
+              <option>Bradley Hand ITC</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <input type="button" value="Done" onclick="ClickMe()">
+          </td>
+        </tr>
+      </table>
+      <div id="set" style="margin: 0px; padding: 0px; height: 100px; width: 670px;background-color: yellow;"></div>
+    </center>
+    <script>
+      function ClickMe()
+      {   
+        var bclr = document.getElementById("bclr").value;
+        var tclr = document.getElementById("tclr").value;
+        var size = document.getElementById("size").value;
+        var text = document.getElementById("text").value;
+        var font = document.getElementById("font").value;
+        var set = document.getElementById("set");  
+        if(bclr!="" && tclr!="" && size!="" && text!="" && font!="")
+        { 
+          //alert("if Part");
+          set.style.backgroundColor=localStorage.bclr=bclr;
+          set.style.color=localStorage.tclr=tclr;
+          set.style.fontSize=localStorage.size=size;
+          set.innerHTML=localStorage.text=text;
+          set.style.fontFamily=localStorage.font=font;
+        }
+        else
+        {
+          // alert("else Part");
+          set.style.backgroundColor=localStorage.bclr;
+          set.style.color=localStorage.tclr;
+          set.style.fontSize=localStorage.size;
+          set.innerHTML=localStorage.text;
+          set.style.fontFamily=localStorage.font;
+        }
+      }
+    </script>
+  </body>
+</html>
